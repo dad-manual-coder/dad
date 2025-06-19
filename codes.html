@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippet Sharing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* Dark Background with Sea-Green Theme */
+body {
+    background: #121212;
+    color: #d9d9d9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Page Container */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Title */
+h1 {
+    color: #00bfa6;
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.3);
+}
+
+/* Subtitle for code snippets */
+.code-title {
+    font-size: 24px;
+    color: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 4px solid #00bfa6;
+}
+
+/* Code Box with Glass Effect */
+.code-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    text-align: left;
+    overflow: hidden;
+    margin-bottom: 30px; /* Space between code boxes */
+}
+
+/* Code Styling */
+pre {
+    margin: 0;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    background: #1e1e1e; /* Darker background for code */
+    color: #d4d4d4;
+    white-space: pre-wrap; /* Ensures text wraps within the pre block */
+    word-wrap: break-word; /* Breaks long words if necessary */
+    overflow-x: auto; /* Adds horizontal scroll if content overflows */
+}
+
+code {
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace; /* Modern monospaced font */
+}
+
+/* Copy Button */
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #00bfa6;
+    color: #121212;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.copy-btn:hover {
+    background: #00d4b0;
+    transform: translateY(-2px);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+}
+
+/* Home Button Styling */
+.home-button {
+    display: inline-block;
+    background-color: #00bfa6; /* Match theme color */
+    color: white;
+    text-align: center;
+    padding: 12px 25px;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+.home-button:hover {
+    background-color: #00d4b0;
+    transform: translateY(-2px);
+}
+
+.home-button:active {
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .code-title {
+        font-size: 20px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        padding-left: 8px;
+    }
+
+    .code-box {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    pre {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .copy-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .home-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 15px auto;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .code-title {
+        font-size: 18px;
+        margin-top: 25px;
+        margin-bottom: 8px;
+        padding-left: 6px;
+    }
+
+    .code-box {
+        padding: 8px;
+        margin-bottom: 15px;
+    }
+
+    pre {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .copy-btn {
+        padding: 5px 8px;
+        font-size: 11px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .home-button {
+        padding: 8px 18px;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+}
+
+</style>
+<body>
+    <br>
+    <a href="index.html" class="home-button">Home Page</a>
+
+    <div class="container">
+        <h1>Code Snippet Sharing</h1>
+
+        <div class="code-title">WIFI Password Shower (Node.js)</div>
+        <div class="code-box">
+            <pre><code class="language-javascript">
+//Compile this code and view your wifi password
+const { exec } = require("child_process");
+
+// Function to get the active Wi-Fi profile name
+function getWifiProfile() {
+    return new Promise((resolve, reject) => {
+        exec('netsh wlan show interfaces', (error, stdout) => {
+            if (error) {
+                return reject("Error fetching Wi-Fi details: " + error.message);
+            }
+            const match = stdout.match(/SSID\\s*:\\s(.*)/);
+            if (match) {
+                resolve(match[1].trim());
+            } else {
+                reject("No active Wi-Fi connection found.");
+            }
+        });
+    });
+}
+
+// Function to retrieve the password of a given Wi-Fi profile
+function getWifiPassword(profile) {
+    return new Promise((resolve, reject) => {
+        exec(`netsh wlan show profile name="${profile}" key=clear`, (error, stdout) => {
+            if (error) {
+                return reject("Error fetching Wi-Fi password: " + error.message);
+            }
+            const match = stdout.match(/Key Content\\s*:\\s(.*)/);
+            if (match) {
+                resolve(match[1].trim());
+            } else {
+                reject("Wi-Fi password not found or stored.");
+            }
+        });
+    });
+}
+
+// Main function to execute the process
+(async () => {
+    try {
+        const profile = await getWifiProfile();
+        console.log(`✅ Connected Wi-Fi: ${profile}`);
+
+        const password = await getWifiPassword(profile);
+        console.log(`🔑 Wi-Fi Password: ${password}`);
+    } catch (error) {
+        console.error("❌ " + error);
+    }
+})();
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+<br>
+<br>
+<br>
+<p>If this code is too big to copy<br>On your keyboard 🎹<br>Please select it manually--<br>❤️💯</p>
+        <div class="code-title"> Virtual Machine (HTML, CSS, JS)</div>
+        <div class="code-box">
+            <pre><code class="language-javascript">
+  &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Wild JS Virtual Machine&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;style&gt;
+  body {
+  background: #121212;
+  color: #eee;
+  font-family: monospace;
+  padding: 20px;
+}
+#output {
+  background: #222;
+  border-radius: 6px;
+  padding: 10px;
+  height: 300px;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+  margin-bottom: 10px;
+}
+#input {
+  width: 100%;
+  font-family: monospace;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #4a90e2;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover {
+  background: #357ABD;
+}
+&lt;/style&gt;
+&lt;/head&gt;  
+&lt;body&gt;    &lt;h1&gt;🔥 JS Virtual Machine 🔥&lt;/h1&gt;  
+  &lt;br&gt;  
+  &lt;div id="output"&gt;&lt;/div&gt;  
+  &lt;input id="input" placeholder="Type bytecode commands here (or 'help')" /&gt;  
+  &lt;br/&gt;  
+  &lt;button id="runBtn"&gt;Run Program&lt;/button&gt;    &lt;script src="script.js"&gt;&lt;/script&gt;  &lt;/body&gt;
+&lt;script&gt;
+    class JSVM {
+  constructor(outputFunc) {
+    this.output = outputFunc;
+
+    // VM Registers and Memory
+    this.stack = [];
+    this.callStack = [];
+    this.memory = new Array(256).fill(0);
+    this.ip = 0; // Instruction pointer
+    this.running = false;
+    this.instructions = [];
+    this.labels = {};
+
+    // Registers
+    this.registers = {
+      A: 0,
+      B: 0,
+      C: 0,
+      D: 0,
+    };
+
+    // Instruction Set
+    this.opcodes = {
+      'PUSH': this.op_PUSH.bind(this),
+      'POP': this.op_POP.bind(this),
+      'LOAD': this.op_LOAD.bind(this),
+      'STORE': this.op_STORE.bind(this),
+      'ADD': this.op_ADD.bind(this),
+      'SUB': this.op_SUB.bind(this),
+      'MUL': this.op_MUL.bind(this),
+      'DIV': this.op_DIV.bind(this),
+      'MOD': this.op_MOD.bind(this),
+      'JMP': this.op_JMP.bind(this),
+      'JZ': this.op_JZ.bind(this),
+      'JNZ': this.op_JNZ.bind(this),
+      'CALL': this.op_CALL.bind(this),
+      'RET': this.op_RET.bind(this),
+      'PRINT': this.op_PRINT.bind(this),
+      'DUMP': this.op_DUMP.bind(this),
+      'HLT': this.op_HLT.bind(this),
+      'NOP': this.op_NOP.bind(this),
+      'EQ': this.op_EQ.bind(this),
+      'NEQ': this.op_NEQ.bind(this),
+      'GT': this.op_GT.bind(this),
+      'LT': this.op_LT.bind(this),
+      'GTE': this.op_GTE.bind(this),
+      'LTE': this.op_LTE.bind(this),
+      'AND': this.op_AND.bind(this),
+      'OR': this.op_OR.bind(this),
+      'NOT': this.op_NOT.bind(this),
+      'READ': this.op_READ.bind(this),
+    };
+
+    // For async READ support
+    this.waitingForInput = false;
+    this.inputCallback = null;
+  }
+
+  reset() {
+    this.stack = [];
+    this.callStack = [];
+    this.memory.fill(0);
+    this.ip = 0;
+    this.running = false;
+    this.registers = { A: 0, B: 0, C: 0, D: 0 };
+    this.waitingForInput = false;
+    this.inputCallback = null;
+  }
+
+  // Load source code (array of instructions)
+  load(source) {
+    this.reset();
+    this.instructions = [];
+    this.labels = {};
+
+    // Parse lines and resolve labels
+    let lines = source.split('\n');
+    let lineNo = 0;
+
+    for(let line of lines){
+      let cleanLine = line.split('//')[0].trim(); // Remove comments
+      if(cleanLine === '') continue;
+
+      // Check for label (e.g. loop:)
+      if(cleanLine.endsWith(':')){
+        let label = cleanLine.slice(0,-1);
+        this.labels[label] = lineNo;
+      } else {
+        this.instructions.push(cleanLine);
+        lineNo++;
+      }
+    }
+  }
+
+  // Run the VM
+  run() {
+    this.running = true;
+    this.output('⚡ VM started...\n');
+
+    while(this.running && this.ip < this.instructions.length){
+      if(this.waitingForInput) break;
+
+      let instr = this.instructions[this.ip];
+      this.output(`> ${instr}\n`);
+
+      let parts = instr.split(/\s+/);
+      let opcode = parts[0].toUpperCase();
+      let args = parts.slice(1);
+
+      if(this.opcodes[opcode]){
+        this.opcodes[opcode](...args);
+      } else {
+        this.output(`❌ Unknown opcode: ${opcode}\n`);
+        this.running = false;
+      }
+
+      if(!this.waitingForInput) this.ip++;
+    }
+
+    if(!this.running) {
+      this.output('⚡ VM halted.\n');
+    }
+  }
+
+  // Step the VM (run one instruction)
+  step() {
+    if(this.ip < this.instructions.length){
+      let instr = this.instructions[this.ip];
+      this.output(`> ${instr}\n`);
+      let parts = instr.split(/\s+/);
+      let opcode = parts[0].toUpperCase();
+      let args = parts.slice(1);
+
+      if(this.opcodes[opcode]){
+        this.opcodes[opcode](...args);
+      } else {
+        this.output(`❌ Unknown opcode: ${opcode}\n`);
+        this.running = false;
+      }
+      if(!this.waitingForInput) this.ip++;
+    } else {
+      this.output('⚡ End of instructions.\n');
+      this.running = false;
+    }
+  }
+
+  // Helper: Parse argument (register, number, or label)
+  parseArg(arg) {
+    if(arg === undefined) return null;
+    if(arg in this.registers) return this.registers[arg];
+    if(!isNaN(arg)) return Number(arg);
+    if(arg in this.labels) return this.labels[arg];
+    return arg; // For string literals in PRINT for example
+  }
+
+  // VM Instructions
+
+  op_PUSH(value) {
+    let v = this.parseArg(value);
+    if(typeof v === 'string' && !(value.startsWith('"') && value.endsWith('"'))) { // Allow string literals
+      this.output(`❌ Invalid PUSH argument: ${value}\n`);
+      this.running = false;
+      return;
+    }
+    // If it's a string literal, remove quotes
+    this.stack.push(typeof v === 'string' ? value.slice(1, -1) : v);
+  }
+
+  op_POP(reg) {
+    if(this.stack.length === 0){
+      this.output('❌ Stack underflow on POP\n');
+      this.running = false;
+      return;
+    }
+    if(reg in this.registers){
+      this.registers[reg] = this.stack.pop();
+    } else {
+      this.output(`❌ Invalid register for POP: ${reg}\n`);
+      this.running = false;
+    }
+  }
+
+  op_LOAD(reg, addr) {
+    addr = this.parseArg(addr);
+    if(addr < 0 || addr >= this.memory.length){
+      this.output(`❌ Memory access violation at LOAD ${addr}\n`);
+      this.running = false;
+      return;
+    }
+    if(reg in this.registers){
+      this.registers[reg] = this.memory[addr];
+    } else {
+      this.output(`❌ Invalid register for LOAD: ${reg}\n`);
+      this.running = false;
+    }
+  }
+
+  op_STORE(reg, addr) {
+    addr = this.parseArg(addr);
+    if(addr < 0 || addr >= this.memory.length){
+      this.output(`❌ Memory access violation at STORE ${addr}\n`);
+      this.running = false;
+      return;
+    }
+    if(reg in this.registers){
+      this.memory[addr] = this.registers[reg];
+    } else {
+      this.output(`❌ Invalid register for STORE: ${reg}\n`);
+      this.running = false;
+    }
+  }
+
+  op_ADD() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on ADD\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a + b);
+  }
+
+  op_SUB() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on SUB\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a - b);
+  }
+
+  op_MUL() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on MUL\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a * b);
+  }
+
+  op_DIV() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on DIV\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    if(b === 0){
+      this.output('❌ Division by zero\n');
+      this.running = false;
+      return;
+    }
+    let a = this.stack.pop();
+    this.stack.push(Math.floor(a / b));
+  }
+
+  op_MOD() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on MOD\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    if(b === 0){
+      this.output('❌ Modulo by zero\n');
+      this.running = false;
+      return;
+    }
+    let a = this.stack.pop();
+    this.stack.push(a % b);
+  }
+
+  op_JMP(label) {
+    let pos = this.labels[label];
+    if(pos === undefined){
+      this.output(`❌ Unknown label for JMP: ${label}\n`);
+      this.running = false;
+      return;
+    }
+    this.ip = pos - 1; // -1 because run() increments after instruction
+  }
+
+  op_JZ(label) {
+    if(this.stack.length === 0){
+      this.output('❌ Stack empty for JZ\n');
+      this.running = false;
+      return;
+    }
+    let val = this.stack.pop();
+    if(val === 0){
+      this.op_JMP(label);
+    }
+  }
+
+  op_JNZ(label) {
+    if(this.stack.length === 0){
+      this.output('❌ Stack empty for JNZ\n');
+      this.running = false;
+      return;
+    }
+    let val = this.stack.pop();
+    if(val !== 0){
+      this.op_JMP(label);
+    }
+  }
+
+  op_CALL(label) {
+    let pos = this.labels[label];
+    if(pos === undefined){
+      this.output(`❌ Unknown label for CALL: ${label}\n`);
+      this.running = false;
+      return;
+    }
+    this.callStack.push(this.ip); // Save return address
+    this.ip = pos - 1; // -1 because run() increments after instruction
+  }
+
+  op_RET() {
+    if(this.callStack.length === 0){
+      this.output('❌ Call stack empty on RET\n');
+      this.running = false;
+      return;
+    }
+    this.ip = this.callStack.pop();
+  }
+
+  op_PRINT(arg) {
+    let value = this.parseArg(arg);
+    if (arg && arg.startsWith('"') && arg.endsWith('"')) {
+      // It's a string literal
+      this.output(`${arg.slice(1, -1)}\n`);
+    } else {
+      // It's a register, number, or value from stack
+      if(value === null) { // If arg was not a register or number, it might be a value from stack
+        if(this.stack.length > 0) {
+          value = this.stack.pop();
+        } else {
+          this.output('❌ PRINT argument missing or stack empty\n');
+          this.running = false;
+          return;
+        }
+      }
+      this.output(`${value}\n`);
+    }
+  }
+
+  op_DUMP() {
+    this.output('--- VM State ---\n');
+    this.output(`IP: ${this.ip}\n`);
+    this.output(`Registers: ${JSON.stringify(this.registers)}\n`);
+    this.output(`Stack: [${this.stack.join(', ')}]\n`);
+    this.output(`Call Stack: [${this.callStack.join(', ')}]\n`);
+    this.output(`Memory (first 10): [${this.memory.slice(0, 10).join(', ')}]\n`);
+    this.output('----------------\n');
+  }
+
+  op_HLT() {
+    this.running = false;
+  }
+
+  op_NOP() {
+    // No operation
+  }
+
+  // Comparison operations (push 1 for true, 0 for false)
+  op_EQ() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on EQ\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a === b ? 1 : 0);
+  }
+
+  op_NEQ() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on NEQ\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a !== b ? 1 : 0);
+  }
+
+  op_GT() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on GT\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a > b ? 1 : 0);
+  }
+
+  op_LT() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on LT\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a < b ? 1 : 0);
+  }
+
+  op_GTE() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on GTE\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a >= b ? 1 : 0);
+  }
+
+  op_LTE() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on LTE\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push(a <= b ? 1 : 0);
+  }
+
+  // Logical operations (push 1 for true, 0 for false)
+  op_AND() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on AND\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push((a && b) ? 1 : 0);
+  }
+
+  op_OR() {
+    if(this.stack.length < 2){
+      this.output('❌ Stack underflow on OR\n');
+      this.running = false;
+      return;
+    }
+    let b = this.stack.pop();
+    let a = this.stack.pop();
+    this.stack.push((a || b) ? 1 : 0);
+  }
+
+  op_NOT() {
+    if(this.stack.length < 1){
+      this.output('❌ Stack underflow on NOT\n');
+      this.running = false;
+      return;
+    }
+    let a = this.stack.pop();
+    this.stack.push((!a) ? 1 : 0);
+  }
+
+  op_READ(reg) {
+    if (!(reg in this.registers)) {
+      this.output(`❌ Invalid register for READ: ${reg}\n`);
+      this.running = false;
+      return;
+    }
+
+    this.waitingForInput = true;
+    this.output('Waiting for input...\n');
+
+    this.inputCallback = (inputValue) => {
+      let parsedValue = parseInt(inputValue, 10);
+      if (isNaN(parsedValue)) {
+        this.output(`⚠️ Could not parse input "${inputValue}" as a number. Storing 0 in ${reg}.\n`);
+        this.registers[reg] = 0;
+      } else {
+        this.registers[reg] = parsedValue;
+      }
+      this.waitingForInput = false;
+      // Continue execution after input is received
+      this.run();
+    };
+  }
+}
+
+
+// --- DOM Elements and Event Handling ---
+const outputDiv = document.getElementById('output');
+const inputField = document.getElementById('input');
+const runButton = document.getElementById('runBtn');
+
+function appendOutput(message) {
+  outputDiv.textContent += message;
+  outputDiv.scrollTop = outputDiv.scrollHeight; // Auto-scroll to bottom
+}
+
+const vm = new JSVM(appendOutput);
+
+// Example programs and help
+const examples = {
+  'help': `
+Welcome to Wild JS Virtual Machine!
+Available commands:
+  - Type bytecode directly (e.g., PUSH 10, ADD, PRINT)
+  - 'help': Show this message
+  - 'example1': Run a simple arithmetic program
+  - 'example2': Run a loop and conditional program
+  - 'example3': Run a program with function calls
+  - 'example4': Demonstrate READ instruction
+  - 'clear': Clear the output
+  - 'reset': Reset the VM state
+`,
+  'example1': `
+PUSH 10
+PUSH 20
+ADD
+PRINT
+HLT
+  `,
+  'example2': `
+// Loop from 0 to 4 and print
+LOAD A 0      // Initialize register A to 0
+loop:         // Define a label 'loop'
+  PUSH A
+  PRINT       // Print current value of A
+  PUSH A
+  PUSH 1
+  ADD
+  POP A       // Increment A
+  PUSH A
+  PUSH 5
+  LT          // Check if A < 5
+  JNZ loop    // If true, jump back to loop
+PRINT "Loop Finished!"
+HLT
+  `,
+  'example3': `
+// Function to add two numbers on stack
+func_add:
+  POP B
+  POP A
+  PUSH A
+  PUSH B
+  ADD
+  RET
+
+// Main program
+PUSH 5
+PUSH 7
+CALL func_add // Call the addition function
+PRINT         // Print result
+HLT
+  `,
+  'example4': `
+PRINT "Enter a number:"
+READ A
+PUSH "You entered: "
+PRINT
+PUSH A
+PRINT
+HLT
+  `
+};
+
+
+runButton.addEventListener('click', () => {
+  const command = inputField.value.trim();
+  if (command === 'clear') {
+    outputDiv.textContent = '';
+    inputField.value = '';
+    return;
+  }
+  if (command === 'reset') {
+    vm.reset();
+    appendOutput('⚡ VM reset.\n');
+    inputField.value = '';
+    return;
+  }
+  if (examples[command]) {
+    appendOutput(`Loading example: ${command}\n`);
+    const program = examples[command];
+    vm.load(program);
+    vm.run();
+    inputField.value = '';
+    return;
+  }
+  if (command === 'help') {
+    appendOutput(examples['help']);
+    inputField.value = '';
+    return;
+  }
+
+  // If VM is waiting for input, provide it
+  if (vm.waitingForInput && vm.inputCallback) {
+    vm.inputCallback(command);
+    inputField.value = '';
+    return;
+  }
+
+  // Otherwise, load and run the entered bytecode
+  vm.load(command);
+  vm.run();
+  inputField.value = '';
+});
+
+// Allow pressing Enter in the input field to trigger the run button
+inputField.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    runButton.click();
+  }
+});
+
+// Initial help message
+appendOutput(examples['help']);
+
+&lt;/script&gt;
+&lt;/html&gt;
+
+&lt;!--If you are not able to copy the code, -- Please select the text manually--&gt;
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+<br>
+<br>
+<br>
+<br>
+
+        <div class="code-title">Certificate in Html, CSS👇</div>
+        <div class="code-box">
+            <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Certificate of Achievement&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="certificate"&gt;
+    &lt;h1&gt;Certificate of Achievement&lt;/h1&gt;
+    &lt;p&gt;This certificate is proudly presented to&lt;/p&gt;
+    &lt;div class="name-field"&gt;
+      &lt;input type="text" placeholder="Enter Your Name"&gt;
+    &lt;/div&gt;
+    &lt;p&gt;For outstanding performance and dedication.&lt;/p&gt;
+    &lt;div class="signature-section"&gt;
+      &lt;div&gt;_________________________&lt;br&gt;
+           &lt;span class="director-name"&gt;Ousman Sankareh&lt;/span&gt;&lt;br&gt;Director&lt;/div&gt;
+      &lt;div&gt;_________________________&lt;br&gt;
+           &lt;span class="date"&gt;01/01/2025&lt;/span&gt;&lt;br&gt;Date&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+
+        <div class="code-title">Stylish CSS Code</div>
+        <div class="code-box">
+            <pre><code class="language-css">
+body {
+  background: #f0f0f0;
+  font-family: 'Georgia', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.certificate {
+  background: white;
+  padding: 40px;
+  border: 10px solid;
+  border-image: linear-gradient(45deg, #ff6b6b, #f7d794, #32ff7e, #18dcff, #7d5fff, #ff6b6b) 1;
+  width: 700px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.certificate h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #4a90e2;
+}
+
+.certificate p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.name-field input {
+  font-size: 24px;
+  border: none;
+  border-bottom: 2px solid #4a90e2;
+  text-align: center;
+  width: 80%;
+  padding: 10px;
+  margin: 20px 0;
+  outline: none;
+}
+
+.signature-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+.signature-section div {
+  text-align: center;
+}
+
+.director-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #4a90e2;
+}
+
+.date {
+  font-size: 12px;
+  color: #555;
+}
+
+@media print {
+  .name-field input {
+    border: none;
+  }
+}
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+<br>
+<br>
+<br>
+
+        <div class="code-title">Cryptography in Python   -🔑-</div>
+        <div class="code-box">
+            <pre><code class="language-python">
+# - pip install cryptography
+# - for the code to work correctly 💯
+import base64
+import os
+from cryptography.fernet import Fernet
+
+class CryptoTool:
+    def __init__(self):
+        self.key = Fernet.generate_key()
+        self.cipher_suite = Fernet(self.key)
+
+    def display_key(self):
+        print(f"Generated Key (base64): {self.key.decode()}")
+
+    def encrypt_message(self, message):
+        if not isinstance(message, bytes):
+            message = message.encode()
+        encrypted = self.cipher_suite.encrypt(message)
+        return encrypted.decode()
+
+    def decrypt_message(self, token):
+        try:
+            decrypted = self.cipher_suite.decrypt(token.encode())
+            return decrypted.decode()
+        except Exception as e:
+            return f"Decryption failed: {str(e)}"
+
+    def save_key(self, filename="crypto_key.key"):
+        with open(filename, "wb") as f:
+            f.write(self.key)
+        print(f"Key saved to {filename}")
+
+    def load_key(self, filename="crypto_key.key"):
+        if not os.path.exists(filename):
+            print("Key file not found.")
+            return False
+        with open(filename, "rb") as f:
+            self.key = f.read()
+        self.cipher_suite = Fernet(self.key)
+        print(f"Key loaded from {filename}")
+        return True
+
+def main():
+    tool = CryptoTool()
+
+    while True:
+        print("\n=== Advanced Encrypt/Decrypt Tool ===")
+        print("1. Display Key")
+        print("2. Save Key to File")
+        print("3. Load Key from File")
+        print("4. Encrypt Message")
+        print("5. Decrypt Message")
+        print("6. Exit")
+        choice = input("Select an option: ")
+
+        if choice == '1':
+            tool.display_key()
+        elif choice == '2':
+            tool.save_key()
+        elif choice == '3':
+            tool.load_key()
+        elif choice == '4':
+            msg = input("Enter message to encrypt: ")
+            enc = tool.encrypt_message(msg)
+            print(f"Encrypted: {enc}")
+        elif choice == '5':
+            token = input("Enter token to decrypt: ")
+            dec = tool.decrypt_message(token)
+            print(f"Decrypted: {dec}")
+        elif choice == '6':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+if __name__ == "__main__":
+    main()
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+<br>
+<br>
+<br>
+        <div class="code-title">C++ Levenstin-Distance Calculator🔥</div>
+        <div class="code-box">
+            <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;future&gt;
+#include &lt;stdexcept&gt;
+#include &lt;iomanip&gt;
+
+template&lt;typename CharT&gt;
+class Levenshtein {
+public:
+    using StringT = std::basic_string&lt;CharT&gt;;
+
+    static int computeMatrix(const StringT&amp; s1, const StringT&amp; s2, bool showMatrix = false) {
+        size_t m = s1.size();
+        size_t n = s2.size();
+        std::vector&lt;std::vector&lt;int&gt;&gt; dp(m + 1, std::vector&lt;int&gt;(n + 1));
+
+        for (size_t i = 0; i &lt;= m; ++i) dp[i][0] = i;
+        for (size_t j = 0; j &lt;= n; ++j) dp[0][j] = j;
+
+        for (size_t i = 1; i &lt;= m; ++i) {
+            for (size_t j = 1; j &lt;= n; ++j) {
+                dp[i][j] = std::min({
+                    dp[i - 1][j] + 1,
+                    dp[i][j - 1] + 1,
+                    dp[i - 1][j - 1] + (s1[i - 1] != s2[j - 1])
+                });
+            }
+        }
+
+        if (showMatrix) {
+            std::cout &lt;&lt; "\nLevenshtein Matrix:\n";
+            std::cout &lt;&lt; "    ";
+            for (auto ch : s2) std::cout &lt;&lt; "  " &lt;&lt; ch;
+            std::cout &lt;&lt; "\n";
+
+            for (size_t i = 0; i &lt;= m; ++i) {
+                if (i &gt; 0) std::cout &lt;&lt; " " &lt;&lt; s1[i - 1] &lt;&lt; " ";
+                else std::cout &lt;&lt; "   ";
+                for (size_t j = 0; j &lt;= n; ++j) {
+                    std::cout &lt;&lt; std::setw(3) &lt;&lt; dp[i][j];
+                }
+                std::cout &lt;&lt; "\n";
+            }
+        }
+
+        return dp[m][n];
+    }
+};
+
+int main() {
+    using namespace std;
+
+    string s1, s2;
+    cout &lt;&lt; "Enter first string: ";
+    getline(cin, s1);
+    cout &lt;&lt; "Enter second string: ";
+    getline(cin, s2);
+
+    int dist = Levenshtein&lt;char&gt;::computeMatrix(s1, s2, true);
+
+    cout &lt;&lt; "\nLevenshtein Distance: " &lt;&lt; dist &lt;&lt; "\n";
+
+    return 0;
+}
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+<br>
+<br>
+<br>
+        <div class="code-title">Java Calculator 😎</div>
+        <div class="code-box">
+            <pre><code class="language-java">
+import java.util.Scanner;
+
+public class AdvancedCalculator {
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        System.out.println("=== Advanced Calculator ===");
+        System.out.println("Available operations:");
+        System.out.println(" +  : Addition");
+        System.out.println(" -  : Subtraction");
+        System.out.println(" *  : Multiplication");
+        System.out.println(" /  : Division");
+        System.out.println(" ^  : Power");
+        System.out.println(" log: Natural logarithm (ln)");
+        System.out.println(" log10: Base-10 logarithm");
+        System.out.println(" sqrt: Square root");
+        System.out.println(" sin: Sine (radians)");
+        System.out.println(" cos: Cosine (radians)");
+        System.out.println(" tan: Tangent (radians)");
+        System.out.println(" exit: Exit calculator");
+
+        while (true) {
+            try {
+                System.out.print("\nEnter operation: ");
+                String op = scanner.next();
+
+                if (op.equalsIgnoreCase("exit")) {
+                    System.out.println("Goodbye!");
+                    break;
+                }
+
+                double result = performOperation(op);
+                System.out.println("Result: " + result);
+
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+                scanner.nextLine(); // clear input
+            }
+        }
+    }
+
+    private static double performOperation(String op) {
+        switch (op) {
+            case "+":
+                return add(readDouble(), readDouble());
+            case "-":
+                return subtract(readDouble(), readDouble());
+            case "*":
+                return multiply(readDouble(), readDouble());
+            case "/":
+                return divide(readDouble(), readDouble());
+            case "^":
+                return power(readDouble(), readDouble());
+            case "log":
+                return log(readDouble());
+            case "log10":
+                return log10(readDouble());
+            case "sqrt":
+                return sqrt(readDouble());
+            case "sin":
+                return Math.sin(readDouble());
+            case "cos":
+                return Math.cos(readDouble());
+            case "tan":
+                return Math.tan(readDouble());
+            default:
+                throw new IllegalArgumentException("Unsupported operation: " + op);
+        }
+    }
+
+    private static double readDouble() {
+        System.out.print("Enter number: ");
+        return scanner.nextDouble();
+    }
+
+    private static double add(double a, double b) {
+        return a + b;
+    }
+
+    private static double subtract(double a, double b) {
+        return a - b;
+    }
+
+    private static double multiply(double a, double b) {
+        return a * b;
+    }
+
+    private static double divide(double a, double b) {
+        if (b == 0) throw new ArithmeticException("Division by zero");
+        return a / b;
+    }
+
+    private static double power(double a, double b) {
+        return Math.pow(a, b);
+    }
+
+    private static double log(double a) {
+        if (a &lt;= 0) throw new ArithmeticException("Logarithm of non-positive number");
+        return Math.log(a);
+    }
+
+    private static double log10(double a) {
+        if (a &lt;= 0) throw new ArithmeticException("Logarithm of non-positive number");
+        return Math.log10(a);
+    }
+
+    private static double sqrt(double a) {
+        if (a &lt; 0) throw new ArithmeticException("Square root of negative number");
+        return Math.sqrt(a);
+    }
+}
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+<br>
+<br>
+<br>
+        <div class="code-title">Educational SQL Query ✍️</div>
+        <div class="code-box">
+            <pre><code class="language-sql">
+CREATE TABLE employees (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    surname VARCHAR(50),
+    age INT,
+    email VARCHAR(100),
+    password VARCHAR(100),
+    is_boss BOOLEAN
+);
+
+INSERT INTO employees (name, surname, age, email, password, is_boss) VALUES
+('John', 'Doe', 34, 'john.doe@gmail.com', 'john1234', FALSE),
+('Alice', 'Smith', 29, 'alice.smith@gmail.com', 'alice5678', FALSE),
+('Bob', 'Johnson', 41, 'bob.johnson@gmail.com', 'bobpass41', FALSE),
+('Carol', 'Williams', 25, 'carol.williams@gmail.com', 'carolpass25', FALSE),
+('David', 'Brown', 38, 'david.brown@gmail.com', 'davidpwd38', FALSE),
+('Eve', 'Davis', 31, 'eve.davis@gmail.com', 'evepw123', FALSE),
+('Frank', 'Miller', 27, 'frank.miller@gmail.com', 'frankpass27', FALSE),
+('Grace', 'Wilson', 45, 'grace.wilson@gmail.com', 'gracepw45', FALSE),
+('Hank', 'Moore', 50, 'hank.moore@gmail.com', 'hankpw50', FALSE),
+('Ivy', 'Taylor', 22, 'ivy.taylor@gmail.com', 'ivypass22', FALSE),
+('Jack', 'Anderson', 33, 'jack.anderson@gmail.com', 'jackpw33', FALSE),
+('Kathy', 'Thomas', 36, 'kathy.thomas@gmail.com', 'kathypw36', FALSE),
+('Leo', 'Jackson', 28, 'leo.jackson@gmail.com', 'leopw28', FALSE),
+('Mia', 'White', 40, 'mia.white@gmail.com', 'miapw40', FALSE),
+('Nate', 'Harris', 26, 'nate.harris@gmail.com', 'natepw26', FALSE),
+('Olivia', 'Martin', 32, 'olivia.martin@gmail.com', 'oliviapw32', FALSE),
+('Paul', 'Thompson', 47, 'paul.thompson@gmail.com', 'paulpw47', FALSE),
+('Quinn', 'Garcia', 30, 'quinn.garcia@gmail.com', 'quinnpw30', FALSE),
+('Rose', 'Martinez', 35, 'rose.martinez@gmail.com', 'rosepw35', FALSE),
+('Steve', 'Robinson', 39, 'steve.robinson@gmail.com', 'stevepw39', FALSE),
+
+-- 5 bosses
+('Boss1', 'King', 55, 'boss1.king@gmail.com', 'boss1pw55', TRUE),
+('Boss2', 'Queen', 52, 'boss2.queen@gmail.com', 'boss2pw52', TRUE),
+('Boss3', 'Emperor', 60, 'boss3.emperor@gmail.com', 'boss3pw60', TRUE),
+('Boss4', 'Chief', 58, 'boss4.chief@gmail.com', 'boss4pw58', TRUE),
+('Boss5', 'Captain', 53, 'boss5.captain@gmail.com', 'boss5pw53', TRUE);
+
+-- Select only the bosses
+SELECT id, name, surname, age, email, password
+FROM employees
+WHERE is_boss = TRUE;
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+<br>
+<br>
+<br>
+        <div class="code-title">My Logo(Manual Coder) in PHP</div>
+        <div class="code-box">
+            <pre><code class="language-php">
+&lt;?php
+echo '&lt;!DOCTYPE html&gt;';
+echo '&lt;html lang="en"&gt;';
+echo '&lt;head&gt;';
+echo '&lt;meta charset="UTF-8"&gt;';
+echo '&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;';
+echo '&lt;title&gt;Manual Coder Logo&lt;/title&gt;';
+echo '&lt;style&gt;
+    body {
+        background: #121212;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .logo {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 48px;
+        display: inline-block;
+        background: linear-gradient(45deg, #ff6b6b, #f7d794, #32ff7e, #18dcff, #7d5fff, #ff6b6b);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient 8s ease infinite;
+    }
+    @keyframes gradient {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+&lt;/style&gt;';
+echo '&lt;/head&gt;';
+echo '&lt;body&gt;';
+echo '&lt;div class="logo"&gt;Manual Coder&lt;/div&gt;';
+echo '&lt;/body&gt;';
+echo '&lt;/html&gt;';
+?&gt;
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+<br>
+<br>
+<br>
+        <div class="code-title">50+ Terminal and Git commands ❤️</div>
+        <div class="code-box">
+            <pre><code class="language-bash">
+git clone https://github.com/user/repository.git
+git init
+git add &lt;filename&gt;
+git add .
+git commit -m "Your commit message"
+git status
+git log
+git log --oneline
+git diff
+git branch
+git branch &lt;branchname&gt;
+git checkout &lt;branchname&gt;
+git checkout -b &lt;new-branch&gt;
+git merge &lt;branchname&gt;
+git pull
+git pull origin &lt;branchname&gt;
+git push
+git push origin &lt;branchname&gt;
+git remote -v
+git remote add origin https://github.com/user/repository.git
+git fetch
+git reset --hard HEAD
+git reset --soft HEAD~1
+git revert &lt;commit-id&gt;
+git rm &lt;filename&gt;
+git mv &lt;oldname&gt; &lt;newname&gt;
+git stash
+git stash pop
+git tag
+git tag &lt;tagname&gt;
+git tag -a &lt;tagname&gt; -m "Tag message"
+git show &lt;commit-id&gt;
+git cherry-pick &lt;commit-id&gt;
+git blame &lt;filename&gt;
+git archive --format zip --output=&lt;file.zip&gt; HEAD
+git clean -f
+git submodule add https://github.com/user/repo.git &lt;path&gt;
+git submodule update --init
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --list
+git shortlog
+git describe --tags
+git bisect start
+git bisect bad
+git bisect good &lt;commit-id&gt;
+git grep &lt;pattern&gt;
+git reflog
+git apply &lt;patchfile&gt;
+git format-patch -1 &lt;commit-id&gt;
+
+wget https://example.com/file.zip
+wget -O &lt;outputfile&gt; https://example.com/file.zip
+wget -c https://example.com/largefile.iso
+
+curl https://example.com
+curl -O https://example.com/file.zip
+curl -L https://example.com/redirected
+
+git init --bare
+git clone --depth 1 https://github.com/user/repository.git
+git commit --amend
+git rebase &lt;branchname&gt;
+git rebase -i HEAD~3
+git push --force
+git diff --cached
+git worktree add &lt;path&gt; &lt;branch&gt;
+git ls-files
+git ls-tree HEAD
+git show-branch
+git verify-commit &lt;commit-id&gt;
+git gc
+git fsck
+            </code></pre>
+            <button class="copy-btn">Copy</button>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all copy buttons and code blocks
+            const copyButtons = document.querySelectorAll(".copy-btn");
+            const codeBlocks = document.querySelectorAll("pre code");
+
+            copyButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    const codeToCopy = codeBlocks[index].innerText;
+                    navigator.clipboard.writeText(codeToCopy).then(() => {
+                        button.textContent = "Copied!";
+                        setTimeout(() => button.textContent = "Copy", 1500);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        button.textContent = "Error!";
+                    });
+                });
+            });
+
+            // Re-highlight all code blocks after they are in the DOM
+            Prism.highlightAll();
+        });
+    </script>
+</body>
+
+<!--<a href="timer.cpp" download 
+   style="display: inline-block; padding: 10px 20px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  ⬇ Download C++ Code
+</a>-->
+<br>
+<br>
+<br>
+<footer style="position: fixed; bottom: 0; left: 0; width: 100%; background: linear-gradient(45deg, pink, fuchsia); text-align: center; padding: 10px 0; color: white; font-family: Arial, sans-serif; font-size: 16px; box-shadow: 0 -2px 10px rgba(255, 20, 147, 0.5);">
+  <a href="https://www.sololearn.com/profile/31020268/?ref=app" style="color: white; text-decoration: none; font-weight: bold; transition: color 0.3s, text-shadow 0.3s;" 
+     onmouseover="this.style.color='yellow'; this.style.textShadow='0 0 5px white';" 
+     onmouseout="this.style.color='white'; this.style.textShadow='none';">
+    -- View more of my code bits on SoloLearn --
+  </a>
+</footer>
+  </a>
+</footer>
+</html>

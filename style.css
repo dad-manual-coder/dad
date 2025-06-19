@@ -1,0 +1,693 @@
+/* Base Styles & Typography */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0A0A0A; /* Deep charcoal background */
+    color: #E0E0E0; /* Soft white for primary text */
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for theme change */
+}
+
+h1, h2, h3 {
+    font-family: 'Lato', sans-serif;
+    color: #FFFFFF; /* Pure white for headings */
+    margin-bottom: 20px;
+    transition: color 0.5s ease; /* Smooth transition for theme change */
+}
+
+h1 {
+    font-size: 3.8rem; /* Larger heading for impact */
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block; /* Allows the underline to center */
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 90px; /* Wider underline for headings */
+    height: 4px;
+    background-color: #00C9A7; /* Vibrant Teal accent */
+    margin: 10px auto 0; /* Centers the underline */
+    border-radius: 2px;
+    transition: background-color 0.5s ease; /* Smooth transition for theme change */
+}
+
+p {
+    font-size: 1.1rem;
+    color: #B0B0B0; /* Slightly darker grey for body text */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: color 0.5s ease; /* Smooth transition for theme change */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #1A1A1A; /* Darker header background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    position: sticky; /* Makes header sticky on scroll */
+    top: 0;
+    z-index: 1000; /* Ensures header stays on top */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for theme change */
+}
+
+.logo {
+    font-size: 32px; /* Larger logo */
+    font-weight: 700;
+    letter-spacing: 1.5px; /* Spacing for emphasis */
+    color: #FFFFFF;
+    transition: color 0.5s ease; /* Smooth transition for theme change */
+}
+
+.logo span {
+    color: #00C9A7; /* Teal accent for logo */
+    transition: color 0.5s ease; /* Smooth transition for theme change */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 25px; /* More spacing between nav items */
+}
+
+nav ul li a {
+    color: #E0E0E0;
+    font-weight: 600;
+    font-size: 1.15rem;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+    padding-bottom: 8px; /* Space for underline */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #FFD700; /* Soft Gold for hover underline */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out, background-color 0.5s ease; /* Smooth transition for theme change */
+}
+
+nav ul li a:hover {
+    color: #FFD700;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Background image with a subtle dark gradient overlay for text readability */
+    background: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.75)), url('images/hero-bg.jpg') center/cover no-repeat;
+    background-attachment: fixed; /* Parallax effect */
+    padding: 0 20px;
+    transition: background 0.5s ease; /* Smooth transition for theme change */
+}
+
+.hero-content {
+    animation: fadeIn 2s ease-out; /* Fade-in animation for hero content */
+    max-width: 900px;
+    position: relative; /* Needed for absolute positioning of toggle button */
+}
+
+.hero-content img {
+    width: 220px; /* Profile picture size */
+    height: 220px;
+    border-radius: 50%; /* Circular image */
+    border: 6px solid #00C9A7; /* Teal border for the image */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px rgba(0, 201, 167, 0.6); /* Pronounced glow */
+    transition: transform 0.3s ease-in-out, border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for theme change */
+}
+
+.hero-content img:hover {
+    transform: scale(1.05) rotate(2deg); /* Slightly more engaging hover */
+}
+
+.hero-content h1 span {
+    color: #FFD700; /* Soft Gold for name highlight */
+    font-weight: 700;
+    transition: color 0.5s ease; /* Smooth transition for theme change */
+}
+
+.hero-content p {
+    font-size: 1.35rem; /* Larger introductory text */
+    color: #C0C0C0;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 16px 35px; /* Larger button */
+    background: #00C9A7;
+    color: #0A0A0A;
+    text-decoration: none;
+    border-radius: 8px; /* Rounded corners */
+    font-weight: 600;
+    font-size: 1.15rem;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.5s ease; /* Smooth transition for theme change */
+    box-shadow: 0 6px 20px rgba(0, 201, 167, 0.5); /* Glowing shadow */
+}
+
+.btn:hover {
+    background: #00A387; /* Darker teal on hover */
+    transform: translateY(-4px); /* More pronounced lift */
+    box-shadow: 0 10px 30px rgba(0, 201, 167, 0.7);
+}
+
+/* Sections General */
+section {
+    padding: 100px 50px; /* More vertical padding for sections */
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: background-color 0.5s ease; /* Smooth transition for theme change */
+}
+
+/* About Section */
+#about {
+    background-color: #121212; /* Slightly different background for contrast */
+    padding-bottom: 100px;
+}
+
+#about p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 850px;
+    margin-top: 30px;
+}
+
+/* Projects Section */
+#projects {
+    background-color: #0A0A0A; /* Back to main background */
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 35px; /* More space between projects */
+    margin-top: 50px;
+}
+
+.project {
+    background: #1A1A1A; /* Project card background */
+    padding: 35px;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.5s ease, border-color 0.5s ease; /* Smooth transition for theme change */
+    text-align: left; /* Align text within cards */
+    border-top: 4px solid #00C9A7; /* Top border accent */
+}
+
+.project:hover {
+    transform: translateY(-15px) scale(1.02); /* More significant lift and slight scale */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    border-color: #FFD700; /* Gold border on hover */
+}
+
+.project h3 {
+    color: #00C9A7;
+    margin-top: 0;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.project p {
+    font-size: 1.05rem;
+    color: #A0A0A0;
+    margin-bottom: 15px;
+}
+
+.project strong {
+    color: #E0E0E0;
+}
+
+/* Contact Section (commented out as per your previous code) */
+#contact {
+    background-color: #121212;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#contact p {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: #C0C0C0;
+}
+
+#contact a {
+    color: #FFD700; /* Soft Gold for contact links */
+    transition: color 0.3s ease-in-out;
+}
+
+#contact a:hover {
+    color: #00C9A7; /* Teal on hover for contact links */
+}
+
+/* Date and Time Section within Contact (commented out as per your previous code) */
+#dateHeader {
+    color: #FFD700; /* Soft gold for date header */
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+#currentDateTime {
+    font-size: 1.8rem;
+    color: #E0E0E0;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.date-button-container {
+    margin-top: 25px;
+    margin-bottom: 60px; /* Space before social links */
+}
+
+.date-button-container .btn {
+    background: #FFD700; /* Soft gold for the button */
+    color: #0A0A0A;
+    padding: 12px 30px;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.date-button-container .btn:hover {
+    background: #E6C200; /* Darker gold on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Social Links */
+.wp-block-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* More space between icons */
+    padding: 0; /* Section already has padding */
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.wp-block-social-links li {
+    list-style: none;
+    margin: 0; /* Remove default list item margin */
+}
+
+.wp-block-social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Larger icons */
+    height: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out, background-color 0.5s ease; /* Smooth transition for theme change */
+    background-color: #2A2A2A; /* Darker background for icons */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 3px solid transparent; /* Default transparent border */
+}
+
+.wp-block-social-links a:hover {
+    transform: translateY(-10px) scale(1.15); /* More pronounced hover effect */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border-color: #00C9A7; /* Teal border on hover */
+}
+
+/* Individual Icon Colors */
+.wp-social-link-facebook a { background-color: #1877f2; }
+.wp-social-link-youtube a { background-color: #ff0000; }
+.wp-social-link-instagram a { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); } /* Richer Instagram gradient */
+.wp-social-link-whatsapp a { background-color: #25D366; }
+.wp-social-link-github a { background-color: #333; } /* GitHub color */
+.wp-social-link-linkedin a { background-color: #0A66C2; } /* LinkedIn color */
+
+
+/* Icon Styling (common for all SVGs) */
+.wp-block-social-links svg {
+    width: 32px; /* Larger SVG icons */
+    height: 32px;
+    fill: #ffffff; /* White icons */
+    transition: fill 0.5s ease; /* Smooth transition for theme change */
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px;
+    background: #1A1A1A;
+    color: #A0A0A0;
+    font-size: 0.95rem;
+    border-top: 1px solid #2A2A2A;
+    transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease; /* Smooth transition for theme change */
+}
+
+.footer span {
+    color: #00C9A7; /* Teal heart */
+    font-size: 1.1em; /* Slightly larger heart */
+    transition: color 0.5s ease; /* Smooth transition for theme change */
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background-color: #FFF0F5; /* Light Pink (Blush) */
+    color: #333333; /* Darker text for contrast */
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3 {
+    color: #8B008B; /* Dark Magenta/Purple for headings */
+}
+
+.light-mode h2::after {
+    background-color: #FF69B4; /* Hot Pink accent */
+}
+
+.light-mode p {
+    color: #555555; /* Slightly lighter dark grey */
+}
+
+.light-mode header {
+    background: #FFB6C1; /* Light Pink for header */
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.5);
+}
+
+.light-mode .logo {
+    color: #8B008B;
+}
+
+.light-mode .logo span {
+    color: #FF69B4;
+}
+
+.light-mode nav ul li a {
+    color: #663399; /* Rebecca Purple for nav links */
+}
+
+.light-mode nav ul li a::after {
+    background-color: #FF1493; /* Deep Pink for hover underline */
+}
+
+.light-mode nav ul li a:hover {
+    color: #FF1493;
+}
+
+.light-mode .hero {
+    background: linear-gradient(rgba(255, 240, 245, 0.75), rgba(255, 240, 245, 0.75)), url('images/hero-bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.light-mode .hero-content img {
+    border-color: #FF69B4; /* Hot Pink border */
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.6); /* Pink glow */
+}
+
+.light-mode .hero-content h1 span {
+    color: #FF1493; /* Deep Pink for name highlight */
+}
+
+.light-mode .hero-content p {
+    color: #444444;
+}
+
+.light-mode .btn {
+    background: #FF69B4; /* Hot Pink button */
+    color: #FFFFFF; /* White text on button */
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+.light-mode .btn:hover {
+    background: #FF1493; /* Deep Pink on hover */
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.7);
+}
+
+.light-mode #about {
+    background-color: #FFF5EE; /* Seashell for about section */
+}
+
+.light-mode #projects {
+    background-color: #FFF0F5; /* Light Pink */
+}
+
+.light-mode .project {
+    background: #FFE4E1; /* Misty Rose for project cards */
+    box-shadow: 0 8px 25px rgba(255, 228, 225, 0.7);
+    border-top: 4px solid #FF69B4; /* Hot Pink top border */
+}
+
+.light-mode .project:hover {
+    border-color: #FF1493; /* Deep Pink on hover */
+}
+
+.light-mode .project h3 {
+    color: #8B008B; /* Dark Magenta for project titles */
+}
+
+.light-mode .project p {
+    color: #666666;
+}
+
+.light-mode .project strong {
+    color: #333333;
+}
+
+.light-mode #contact {
+    background-color: #FFF5EE; /* Seashell */
+}
+
+.light-mode #contact p {
+    color: #444444;
+}
+
+.light-mode #contact a {
+    color: #FF1493; /* Deep Pink for contact links */
+}
+
+.light-mode #contact a:hover {
+    color: #FF69B4; /* Hot Pink on hover */
+}
+
+.light-mode #dateHeader {
+    color: #8B008B; /* Dark Magenta for date header */
+}
+
+.light-mode #currentDateTime {
+    color: #333333;
+}
+
+.light-mode .date-button-container .btn {
+    background: #FF69B4; /* Hot Pink for date button */
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+.light-mode .date-button-container .btn:hover {
+    background: #FF1493; /* Deep Pink on hover */
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
+}
+
+.light-mode .wp-block-social-links a {
+    background-color: #FFEBEE; /* Light pink background for social icons */
+    box-shadow: 0 4px 15px rgba(255, 235, 238, 0.7);
+    border: 3px solid #FF69B4; /* Hot Pink border */
+}
+
+.light-mode .wp-block-social-links a:hover {
+    border-color: #FF1493; /* Deep Pink border on hover */
+}
+
+/* Specific light mode adjustments for social icon colors */
+.light-mode .wp-social-link-facebook a { background-color: #E0BBE4; } /* Lighter Facebook pinkish */
+.light-mode .wp-social-link-youtube a { background-color: #F8BBD0; } /* Lighter YouTube pinkish */
+.light-mode .wp-social-link-instagram a { background: radial-gradient(circle at 30% 107%, #FFC0CB 0%, #FFC0CB 5%, #FFD1DC 45%, #E6BFB8 60%, #D8BFD8 90%); } /* Lighter Instagram gradient */
+.light-mode .wp-social-link-whatsapp a { background-color: #B2DFDB; } /* Lighter WhatsApp green-ish */
+.light-mode .wp-social-link-github a { background-color: #F0F8FF; } /* Lighter GitHub (AliceBlue) */
+.light-mode .wp-social-link-linkedin a { background-color: #ADD8E6; } /* Lighter LinkedIn (LightBlue) */
+
+.light-mode .wp-block-social-links svg {
+    fill: #8B008B; /* Dark Magenta icons in light mode */
+}
+
+.light-mode .footer {
+    background: #FFB6C1; /* Light Pink for footer */
+    color: #333333;
+    border-top: 1px solid #FFC0CB;
+}
+
+.light-mode .footer span {
+    color: #FF1493; /* Deep Pink heart */
+}
+
+/* Light Mode Toggle Button */
+.light-mode-toggle {
+    position: absolute; /* Position relative to the parent (.hero-content) */
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.light-mode-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.light-mode .light-mode-toggle {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #8B008B;
+    border-color: #8B008B;
+}
+
+.light-mode .light-mode-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.3rem; }
+    section { padding: 80px 30px; }
+    nav ul li { margin: 0 15px; }
+    .hero-content img {
+        width: 180px;
+        height: 180px;
+    }
+    .hero-content p { font-size: 1.2rem; }
+    .btn { padding: 14px 30px; font-size: 1.05rem; }
+    .project { padding: 30px; }
+    .project h3 { font-size: 1.6rem; }
+    .wp-block-social-links a { width: 55px; height: 55px; }
+    .wp-block-social-links svg { width: 30px; height: 30px; }
+    .light-mode-toggle {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 5px 10px;
+    }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    section { padding: 60px 20px; }
+    .hero-content img {
+        width: 150px;
+        height: 150px;
+    }
+    .hero-content p { font-size: 1.1rem; }
+    .btn { padding: 12px 25px; font-size: 1rem; }
+    .project-list {
+        grid-template-columns: 1fr; /* Stack projects on small screens */
+    }
+    .project {
+        width: auto; /* Allow project cards to take full width */
+        padding: 25px;
+    }
+    .project h3 { font-size: 1.5rem; }
+    #contact p { font-size: 1.1rem; }
+    #dateHeader { font-size: 1.6rem; }
+    #currentDateTime { font-size: 1.5rem; }
+    .wp-block-social-links { gap: 20px; }
+    .wp-block-social-links a { width: 55px; height: 55px; }
+    .wp-block-social-links svg { width: 30px; height: 30px; }
+    .light-mode-toggle {
+        top: 5px;
+        right: 5px;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 28px; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    section { padding: 40px 15px; }
+    .hero-content p { font-size: 0.95rem; }
+    .btn { padding: 10px 20px; font-size: 0.9rem; }
+    #contact p { font-size: 1rem; }
+    #dateHeader { font-size: 1.4rem; }
+    #currentDateTime { font-size: 1.3rem; }
+    .wp-block-social-links { gap: 15px; }
+    .wp-block-social-links a { width: 50px; height: 50px; }
+    .wp-block-social-links svg { width: 28px; height: 28px; }
+    .light-mode-toggle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+}

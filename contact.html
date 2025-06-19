@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+      /* Dark Background with Sea-Green Theme */
+body {
+    background: #121212;
+    color: #d9d9d9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background 0.5s ease, color 0.5s ease; /* Smooth transition for theme change */
+}
+
+/* Page Container */
+.container {
+    max-width: 800px; /* Slightly smaller for a contact page */
+    margin: 50px auto;
+    padding: 30px; /* More padding */
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px; /* More rounded corners */
+    box-shadow: 0 10px 40px 0 rgba(0, 255, 255, 0.15); /* Stronger shadow */
+    backdrop-filter: blur(10px); /* Stronger blur */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Thicker border */
+    transition: background 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
+}
+
+/* Title */
+h1 {
+    color: #00bfa6;
+    font-size: 42px; /* Larger title */
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 7px rgba(0, 255, 255, 0.4); /* Stronger text shadow */
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #00e0c0; /* Slightly brighter green for subtitles */
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 255, 255, 0.2);
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+/* Direct Contact Info */
+.contact-info {
+    text-align: left;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin: 10px 0;
+    padding-left: 20px;
+    color: #e0e0e0;
+}
+
+.contact-info strong {
+    color: #00bfa6; /* Highlight labels */
+}
+
+.direct-contact-link {
+    color: #8affd4; /* Lighter green for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.direct-contact-link:hover {
+    color: #00bfa6;
+    text-decoration: underline;
+}
+
+/* Social Links Section */
+.social-links {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px; /* More space between icons */
+}
+
+.social-link {
+    display: inline-block;
+    width: 70px; /* Larger icons */
+    height: 70px; /* Larger icons */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly less transparent */
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.25); /* Stronger shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-8px) scale(1.15); /* More prominent lift and scale */
+    box-shadow: 0 12px 25px rgba(0, 255, 255, 0.5); /* Even stronger shadow */
+    background-color: rgba(0, 191, 166, 0.4); /* Lighter sea-green on hover */
+    border: 1px solid rgba(0, 255, 255, 0.6); /* Add a border on hover */
+}
+
+.social-link img {
+    width: 65%; /* Slightly smaller image within the circle */
+    height: 65%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6)); /* Stronger glow for icons */
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    text-align: right;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+
+#themeToggleButton {
+    background-color: #00bfa6;
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Larger button */
+    border-radius: 8px; /* More rounded */
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#themeToggleButton:hover {
+    background-color: #00d4b0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4);
+}
+
+#themeToggleButton:active {
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        margin: 25px auto;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .contact-info p {
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    .social-link {
+        width: 60px;
+        height: 60px;
+        gap: 20px;
+    }
+
+    .social-link img {
+        width: 60%;
+        height: 60%;
+    }
+
+    #themeToggleButton {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+
+    .theme-switcher {
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 15px auto;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+
+    .contact-info p {
+        font-size: 15px;
+        padding-left: 5px;
+    }
+
+    .social-links {
+        gap: 15px;
+    }
+
+    .social-link {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-link img {
+        width: 60%;
+        height: 60%;
+    }
+
+    #themeToggleButton {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+    .theme-switcher {
+        margin-right: 15px;
+    }
+}
+       /* Light Background with White, Pink, and Fuchsia Theme */
+body.light-theme {
+    background: #fdf6fa; /* Very light pinkish white */
+    color: #333333; /* Darker text for contrast */
+}
+
+.light-theme .container {
+    background: rgba(255, 250, 250, 0.95); /* Near-white background */
+    box-shadow: 0 10px 40px 0 rgba(255, 105, 180, 0.3); /* Pinkish shadow */
+    border: 1px solid rgba(255, 192, 203, 0.7); /* Light pink border */
+}
+
+.light-theme h1 {
+    color: #ff1493; /* Deep Pink */
+    text-shadow: 3px 3px 7px rgba(255, 20, 147, 0.4); /* Deep pink text shadow */
+}
+
+.light-theme p {
+    color: #555555;
+}
+
+.light-theme h2 {
+    color: #e0007e; /* Fuchsia */
+    text-shadow: 1px 1px 3px rgba(224, 0, 126, 0.2);
+}
+
+.light-theme .contact-info {
+    border-top: 1px dashed rgba(255, 192, 203, 0.6);
+    border-bottom: 1px dashed rgba(255, 192, 203, 0.6);
+}
+
+.light-theme .contact-info p {
+    color: #444444;
+}
+
+.light-theme .contact-info strong {
+    color: #ff1493; /* Highlight labels with deep pink */
+}
+
+.light-theme .direct-contact-link {
+    color: #da70d6; /* Orchid color for links */
+}
+
+.light-theme .direct-contact-link:hover {
+    color: #ff1493; /* Deep Pink on hover */
+}
+
+.light-theme .social-link {
+    background-color: rgba(255, 240, 245, 0.9); /* Lighter pink for social links */
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.35);
+}
+
+.light-theme .social-link:hover {
+    background-color: rgba(255, 192, 203, 0.8); /* Pink on hover */
+    box-shadow: 0 12px 25px rgba(255, 105, 180, 0.6);
+    border: 1px solid rgba(255, 20, 147, 0.6); /* Deep pink border on hover */
+}
+
+.light-theme .social-link img {
+    filter: none; /* Remove filter for light theme icons if they have a glow */
+}
+
+.light-theme #themeToggleButton {
+    background-color: #ff1493; /* Deep Pink for toggle button */
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 20, 147, 0.3);
+}
+
+.light-theme #themeToggleButton:hover {
+    background-color: #e0007e; /* Fuchsia on hover */
+    box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+}
+ 
+    </style>
+    </head>
+<body>
+    <div class="theme-switcher">
+ <div style="display: flex; justify-content: flex-start;">
+  &nbsp; &nbsp;<a href="index.html" style="display: inline-block; padding: 5px 10px; font-size: 14px; text-decoration: none; background-color: #4CAF50; color: white; border: none; border-radius: 4px;">
+    🏠
+  </a>
+</div>
+        <button id="themeToggleButton">Switch to Light Theme</button>
+    </div>
+
+    <div class="container">
+        <h1>Get in Touch!</h1>
+        <p>I'd love to hear from you. Feel free to reach out through any of the platforms below.</p>
+   <p>I also <b>aim</b> to build a platform where people learn to code...</p>
+        <div class="contact-info">
+            <h2>Direct Contact</h2>
+            <p><strong>Email:</strong> <a href="mailto: ousttbrnp570@gmail.com" class="direct-contact-link" data-platform="Email">Click here</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+2203615096" class="direct-contact-link" data-platform="Phone">Call me<br>I may not be available on call🤙</a></p>
+            </div>
+
+        <h2>Connect on Social Media</h2>
+        <div class="social-links">
+            <a href="https://wa.me/+2203615096" target="_blank" class="social-link whatsapp" data-platform="WhatsApp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100088947221621" target="_blank" class="social-link facebook" data-platform="Facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/dad.algo3?igsh=aW8yazIzOWpqeTh4" target="_blank" class="social-link instagram" data-platform="Instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://twitter.com/YOURTWITTERPROFILE" target="_blank" class="social-link twitter" data-platform="Twitter">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter">
+            </a>
+            <a href="https://www.linkedin.com/in/ousman-sankareh-34ab4b296" target="_blank" class="social-link linkedin" data-platform="LinkedIn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/dad-manual-coder" target="_blank" class="social-link github" data-platform="GitHub">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+            </div>
+    </div>
+<p><a style="text-decoration: none" href="https://youtube.com/@my_coding_challenges?si=fAh8m1CxjJ1Jg0y5">❤️Click here to join me on <b style="color: fuchsia">youtube...</b></a></p>
+    <script src="script.js"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const themeToggleButton = document.getElementById('themeToggleButton');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        body.classList.add(currentTheme);
+        if (currentTheme === 'light-theme') {
+            themeToggleButton.textContent = 'Switch to Dark Theme';
+        } else {
+            themeToggleButton.textContent = 'Switch to Light Theme';
+        }
+    } else {
+        // Default to dark theme if no preference is found
+        body.classList.add('dark-theme');
+        themeToggleButton.textContent = 'Switch to Light Theme';
+    }
+
+
+    themeToggleButton.addEventListener('click', () => {
+        if (body.classList.contains('dark-theme')) {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            themeToggleButton.textContent = 'Switch to Dark Theme';
+            localStorage.setItem('theme', 'light-theme');
+        } else {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            themeToggleButton.textContent = 'Switch to Light Theme';
+            localStorage.setItem('theme', 'dark-theme');
+        }
+    });
+
+    // Optional: Add a subtle animation/effect when clicking direct contact links
+    const directContactLinks = document.querySelectorAll('.direct-contact-link');
+    directContactLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            const platform = event.target.dataset.platform;
+            console.log(`User is attempting to contact via ${platform}`);
+            // You could add a temporary visual feedback here, e.g., a small pop-up
+            // or a brief change in the link's appearance.
+        });
+    });
+
+    // Optional: Add a subtle animation/effect when hovering social links (already done with CSS, but JS can add more)
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            const platform = link.dataset.platform;
+            console.log(`Hovering over ${platform}`);
+            // If you wanted to, you could trigger a more complex JS animation here
+        });
+        link.addEventListener('mouseleave', () => {
+            const platform = link.dataset.platform;
+            console.log(`Leaving ${platform}`);
+        });
+    });
+});
+
+</script>
+</html>

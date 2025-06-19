@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ousman Sankareh | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <div class="logo">Ousman<span>Sankareh</span></div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="codes.html">Codes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="img.jpg" alt="Ousman Sankareh Profile Picture">
+            <button class="light-mode-toggle" aria-label="Toggle light mode">☀️</button>
+            <h1>Hello, I'm <span>Ousman Sankareh</span></h1>
+            <p>A Passionate Programmer | Developer & Tech Enthusiast</p>
+            <a href="https://github.com/dad-manual-coder/" class="btn" target="_blank" rel="noopener noreferrer">View My Work</a>
+        </div>
+    </section>
+        <br>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+          I am a proud self-taught programmer who believes in the power of learning through hands-on experience. Coding manually has always been a source of pride for me because it allows me to fully understand the logic and structure behind every line of code I write. My primary focus is on C++, Assembly, Python, and Java—four programming languages that I find incredibly versatile and essential for building impactful projects. Through my journey, I have come to appreciate the beauty and complexity of programming, and I continue to push myself to learn and grow every day.
+        </p>
+    </section>
+<!--<img style="width: 150px;" src="project.jpg">-->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-list">
+            <div class="project">
+                <h3>ChatBot</h3>
+                <p>A full-stack AI ChatBot application built with HTML, CSS, and JavaScript. This project includes a user-friendly interface and integrates natural language processing for seamless interactions.</p>
+                <p><strong>Note:</strong> Designed to handle real-time conversations, this chatbot can be deployed on websites or messaging platforms.</p>
+            </div>
+            <div class="project">
+                <h3>WhatsApp Bot</h3>
+                <p>An AI-powered bot for WhatsApp built using TypeScript and Node.js. It automates responses, manages group chats, and provides useful utilities like reminders and notifications.</p>
+                <p><strong>Note:</strong> This bot leverages the Twilio API for WhatsApp integration, ensuring reliable and scalable communication.</p>
+            </div>
+            <div class="project">
+                <h3>HTTP Server</h3>
+                <p>A program built to manage HTTP requests, developed using C and C++. It supports multi-threading and handles GET, POST, and PUT requests efficiently.</p>
+                <p><strong>Note:</strong> This server is lightweight and optimized for high-performance environments, making it ideal for embedded systems.</p>
+            </div>
+            <div class="project">
+                <h3>E-Commerce Dashboard</h3>
+                <p>A responsive front-end dashboard for e-commerce platforms, built with React.js and Tailwind CSS. It provides real-time analytics, product management, and order tracking.</p>
+                <p><strong>Note:</strong> The dashboard is fully customizable and integrates with REST APIs for dynamic data fetching.</p>
+            </div>
+            <div class="project">
+                <h3>RESTful API for Blogging Platform</h3>
+                <p>A back-end RESTful API built with Python (Django) and PostgreSQL. It supports user authentication, CRUD operations for blog posts, and comment management.</p>
+                <p><strong>Note:</strong> This API is scalable and follows REST principles, making it easy to integrate with any front-end framework.</p>
+            </div>
+            <div class="project">
+                <h3>Task Management App</h3>
+                <p>A full-stack task management application built with Vue.js (front-end) and Express.js (back-end). It includes features like task creation, deadlines, and priority settings.</p>
+                <p><strong>Note:</strong> The app uses JWT for secure authentication and MongoDB for storing user data and tasks.</p>
+            </div>
+            <div class="project">
+                <h3>Weather App</h3>
+                <p>A front-end weather application built with HTML, CSS, and JavaScript. It fetches real-time weather data using the OpenWeatherMap API and displays it in a clean, user-friendly interface.</p>
+                <p><strong>Note:</strong> This app is fully responsive and works seamlessly across devices, providing accurate weather forecasts.</p>
+            </div>
+        </div>
+    </section>
+    <h4 style="text-align: center">Contact:👇</h4>
+    <h4 style="text-align: center; font-family: 'Comic Sans MS', cursive, sans-serif; color: #FF69B4; text-shadow: 2px 2px 4px #87CEEB;"><a href="contact.html" style="text-decoration: none; color: #BA55D3;">Click below<br>To Contact me -- <br>And Get in Touch!</a><bt>______</bt></h4>
+    
+    
+    <footer class="footer">
+        &copy; 2025 Ousman Sankareh. Made with <span>❤</span> by Ousman.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightModeToggle = document.querySelector('.light-mode-toggle');
+            const body = document.body;
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light-mode') {
+                body.classList.add('light-mode');
+                lightModeToggle.textContent = '🌙'; // Moon icon for dark mode toggle
+            } else {
+                lightModeToggle.textContent = '☀️'; // Sun icon for light mode toggle
+            }
+
+            lightModeToggle.addEventListener('click', () => {
+                if (body.classList.contains('light-mode')) {
+                    body.classList.remove('light-mode');
+                    lightModeToggle.textContent = '☀️'; // Switch to sun icon
+                    localStorage.setItem('theme', 'dark-mode'); // Save preference
+                } else {
+                    body.classList.add('light-mode');
+                    lightModeToggle.textContent = '🌙'; // Switch to moon icon
+                    localStorage.setItem('theme', 'light-mode'); // Save preference
+                }
+            });
+        });
+    </script>
+</body>
+</html>
