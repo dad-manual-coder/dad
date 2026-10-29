@@ -15,8 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -39,25 +38,25 @@
             <a href="https://github.com/dad-manual-coder/" class="btn" target="_blank" rel="noopener noreferrer">View My Work</a>
         </div>
     </section>
-        <br>
+    <br>
     <section id="about">
         <h2>About Me</h2>
         <p>
-          I am a proud self-taught programmer who believes in the power of learning through hands-on experience. Coding manually has always been a source of pride for me because it allows me to fu[...]
+          I am a proud self-taught programmer who believes in the power of learning through hands-on experience. Coding manually has always been a source of pride for me because it allows me to fully understand and build projects from the ground up.
         </p>
     </section>
-<!--<img style="width: 150px;" src="project.jpg">-->
+
     <section id="projects">
         <h2>Projects</h2>
         <div class="project-list">
             <div class="project">
                 <h3>ChatBot</h3>
-                <p>A full-stack AI ChatBot application built with HTML, CSS, and JavaScript. This project includes a user-friendly interface and integrates natural language processing for seamless[...]
+                <p>A full-stack AI ChatBot application built with HTML, CSS, and JavaScript. This project includes a user-friendly interface and integrates natural language processing for seamless conversations.</p>
                 <p><strong>Note:</strong> Designed to handle real-time conversations, this chatbot can be deployed on websites or messaging platforms.</p>
             </div>
             <div class="project">
                 <h3>WhatsApp Bot</h3>
-                <p>An AI-powered bot for WhatsApp built using TypeScript and Node.js. It automates responses, manages group chats, and provides useful utilities like reminders and notifications.</[...]
+                <p>An AI-powered bot for WhatsApp built using TypeScript and Node.js. It automates responses, manages group chats, and provides useful utilities like reminders and notifications.</p>
                 <p><strong>Note:</strong> This bot leverages the Twilio API for WhatsApp integration, ensuring reliable and scalable communication.</p>
             </div>
             <div class="project">
@@ -82,45 +81,40 @@
             </div>
             <div class="project">
                 <h3>Weather App</h3>
-                <p>A front-end weather application built with HTML, CSS, and JavaScript. It fetches real-time weather data using the OpenWeatherMap API and displays it in a clean, user-friendly in[...]
+                <p>A front-end weather application built with HTML, CSS, and JavaScript. It fetches real-time weather data using the OpenWeatherMap API and displays it in a clean, user-friendly interface.</p>
                 <p><strong>Note:</strong> This app is fully responsive and works seamlessly across devices, providing accurate weather forecasts.</p>
             </div>
         </div>
     </section>
     <h4 style="text-align: center">Contact:👇</h4>
-    <h4 style="text-align: center; font-family: 'Comic Sans MS', cursive, sans-serif; color: #FF69B4; text-shadow: 2px 2px 4px #87CEEB;"><a href="contact.html" style="text-decoration: none; color:[...]
-    
-    
+    <h4 style="text-align: center; font-family: 'Comic Sans MS', cursive, sans-serif; color: #FF69B4; text-shadow: 2px 2px 4px #87CEEB;"><a href="contact.html" style="text-decoration: none; color: #FF69B4;">Get in touch</a></h4>
+
     <footer class="footer">
         &copy; 2025 My Portfolio. Made with <span>❤</span> by Ousman.
     </footer>
 
     <script>
-        // alert box ---
-        // alert("Click the small icon on the right to switch to light or dark mode☀️.");
-        
         document.addEventListener('DOMContentLoaded', () => {
             const lightModeToggle = document.querySelector('.light-mode-toggle');
             const body = document.body;
 
-            // Check for saved theme preference
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light-mode') {
                 body.classList.add('light-mode');
-                lightModeToggle.textContent = '🌙'; // Moon icon for dark mode toggle
+                lightModeToggle.textContent = '🌙';
             } else {
-                lightModeToggle.textContent = '☀️'; // Sun icon for light mode toggle
+                lightModeToggle.textContent = '☀️';
             }
 
             lightModeToggle.addEventListener('click', () => {
                 if (body.classList.contains('light-mode')) {
                     body.classList.remove('light-mode');
-                    lightModeToggle.textContent = '☀️'; // Switch to sun icon
-                    localStorage.setItem('theme', 'dark-mode'); // Save preference
+                    lightModeToggle.textContent = '☀️';
+                    localStorage.setItem('theme', 'dark-mode');
                 } else {
                     body.classList.add('light-mode');
-                    lightModeToggle.textContent = '🌙'; // Switch to moon icon
-                    localStorage.setItem('theme', 'light-mode'); // Save preference
+                    lightModeToggle.textContent = '🌙';
+                    localStorage.setItem('theme', 'light-mode');
                 }
             });
         });
